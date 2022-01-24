@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <title>PI-site - Funty.org</title>
+        <link rel="icon" href="https://funty.org/assets/logo.png">
+        <meta name="author" content="Funty" />
+    
+        <meta name="description" content="π"/>
+        <meta name="keywords" content="funty, π, programming, math, Mathematics, PI, PI-site"/>
+    </head>
+    <body onload="onLoad()">
+        <div>
+
+            <select name="method" id="method" onchange="onLoad()">
+				<option value="method1" disabled>Euler's formula</option>
+				<option value="method2">Leibniz formula</option>
+			</select>
+
+
+            <input class="freeze" type="checkbox" id="freeze" name="freeze">
+            <label for="freeze">freeze</label>
+
+            <input class="debug" type="checkbox" id="debug" name="debug">
+            <label for="debug">console debug</label>
+
+        </div>
+
+        <p id="text">π</p>
+
+    </body>
+</html>
+
+
+<script>
+    function onLoad() {
+
+        var methodMenu = document.getElementById("method");
+        switch (methodMenu.options[methodMenu.selectedIndex].value) {
+            case "method1":
+            default:
+                document.getElementById("text").innerHTML = "ERROR";
+                /*--------------------------[ Comming soon]--------------------------
+
+
+                let x = 4;
+                let lastOperator = "+";
+                let pi = 3+4/(2*3*4);
+                var method1Interval = setInterval(function() {
+                    if(!document.querySelector('.freeze').checked){
+
+                        if(lastOperator === "+") lastOperator = "-"
+                        else lastOperator = "+";
+
+                        
+                        if(lastOperator === "+") pi = pi - (4/(x*(x+1)*(x+2)))
+                        else pi = pi + (4/(x*(x+1)*(x+2)));
+                        
+                        
+                        document.getElementById("text").innerHTML = pi;
+
+                        x = x+2
+                        
+                    
+                        if(methodMenu.options[methodMenu.selectedIndex].value != "method1") clearInterval(method1Interval)
+                    }
+                }, 1);
+
+                setInterval(function() {
+                    if(document.querySelector('.debug').checked){
+                        console.log("\n")
+                        console.log("v---------------[DEBUG]---------------v");
+                        console.log("x: "+x);
+                        console.log("lastOperator: "+lastOperator);
+                        console.log("pi: "+pi);
+                        console.log("^---------------[DEBUG]---------------^");
+                        console.log("\n")
+                    }
+                }, 1000);
+
+
+                --------------------------[ Comming soon]--------------------------*/
+                break;
+
+            case "method2":
+                let y = 1;
+                let lastOperator2 = "+";
+                let pi2 = 4/y;
+                var method2Interval = setInterval(function() {
+                    if(!document.querySelector('.freeze').checked){
+                        
+                        if(lastOperator2 === "+") lastOperator2 = "-"
+                        else lastOperator2 = "+";
+
+                        if(y != 1){
+                            if(lastOperator2 === "+") pi2 = pi2 - (4/y)
+                            else pi2 = pi2 + (4/y);
+                        }
+                        
+                        document.getElementById("text").innerHTML = pi2;
+                        y = y+2;
+
+                        if(methodMenu.options[methodMenu.selectedIndex].value != "method2") clearInterval(method2Interval);
+                    }
+                }, 1);
+
+                setInterval(function() {
+                    if(document.querySelector('.debug').checked){
+                        console.log("\n")
+                        console.log("v---------------[DEBUG]---------------v");
+                        console.log("y: "+y);
+                        console.log("lastOperator2: "+lastOperator2);
+                        console.log("pi2: "+pi2);
+                        console.log("^---------------[DEBUG]---------------^");
+                        console.log("\n")
+                    }
+                }, 1000);
+                break;
+        }
+    }
+</script>
